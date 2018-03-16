@@ -15,7 +15,7 @@ RUN npm -g install serve
 WORKDIR /app
 
 #Default command
-CMD ["serve", "-s", "build", "-p", "8080"]
+CMD ["serve", "-s", "build", "-p", "8081"]
 WORKDIR /../
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
