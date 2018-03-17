@@ -116,7 +116,13 @@ app.get('/viewreg', function(req, res){
     }
   });
 });
+app.get('/sel-tr', function(req, res){
+  var db = require('silverlining')('https://jeciethencheaspeciandera:b78617582f9930a1a79421751681234422decee2@HOST.cloudant.com/animalsdb');
+  db.query('SELECT company FROM webinar').then(function(data) {
+    console.log(data);
+  });
 
+});
 // start server on the specified port
 app.listen(port);
 console.log(`Webinar registration server started on port ${port}....`);
