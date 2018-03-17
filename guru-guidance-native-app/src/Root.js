@@ -1,24 +1,63 @@
 import React from 'react';
-import { View, Text,  Alert, Button, TextInput, TouchableOpacity, Platform, Dimensions } from 'react-native';
-import {Card, CardItem, Thumbnail, H1 } from 'native-base';
+import { View, Text,  Alert, Button, TextInput, StyleSheet,
+        TouchableOpacity, Platform, Dimensions, Image } from 'react-native';
+import {Card, CardItem,  H1 } from 'native-base';
+
+import QA from './QA';
+import Syllabus from './Syllabus';
+import Tutor from './Tutor';
+import Projects from './Projects';
+
 
 export default class Root extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
-  }
+  state = {
+    screen: 0,
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  render() {
+    if(this.state.screen == 0){
+      return (
+        <View style={{
+            paddingTop: Expo.Constants.statusBarHeight,
+            justifyContent: 'center',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flex: 1,}}>
+          <View style={{flex: 1}}>
+          <H1> Guru-Guidance </H1>
+          </View>
+        <View style={{flex: 1,justifyContent: 'center',alignItems: 'center',}}>
+        <View style={{flex: 1, flexDirection: 'row'}}>
+          <View style={{width: (Dimensions.get('window').width-50)/2, height: 125, backgroundColor: 'powderblue'}} />
+          <View style={{width: (Dimensions.get('window').width-50)/2, height: 125, backgroundColor: 'red'}} />
+        </View>
+        <View style={{flex: 1, flexDirection: 'row'}}>
+          <View style={{width: (Dimensions.get('window').width-50)/2, height: 125, backgroundColor: 'powderblue'}} />
+          <View style={{width: (Dimensions.get('window').width-50)/2, height: 125, backgroundColor: 'red'}} />
+        </View>
+        </View>
+        <View style={{
+          justifyContent: 'center',
+          alignItems: 'center',}}>
+        <Text style={{
+          fontSize: 15
+          }}> Powered by </Text>
+        <Image  source={require('./images/ibm.png')}/>
+        </View>
+        </View>
+      );
+    }
+    else if(this.state.screen == 1){
+      <Syllabus/>
+    }
+    else if(this.state.screen == 2){
+      <Tutor/>
+    }
+    else if(this.state.screen ==3){
+      <QA/>
+    }
+    else {
+      <Projects/>
+    }
+  }
+}
