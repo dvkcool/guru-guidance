@@ -38,7 +38,7 @@ if (process.env.VCAP_SERVICES) {
 var url ='https://815b5ed3-a368-4187-822d-a44ac02baad4-bluemix:f9e969a258a436c91ede37fd494b3085a9ccfe81f853048a70fdd149f138e807@815b5ed3-a368-4187-822d-a44ac02baad4-bluemix.cloudant.com';
 
 const port = process.env.PORT || 8080;
-var popup = require('popups');
+
 // Just hardcoding the database name, should probably be an env var
 const dbname = 'guru';
 
@@ -67,7 +67,7 @@ else
 var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('request');
-
+//var popup = require('popups');
 // Create a new express server and set up the body-parser
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -168,9 +168,10 @@ app.post('/syllabus-recommend', function(req, res){
         console.log('Registration successfully processed!');
     }
   });
-  popup.alert({
+  /*popup.alert({
     content: 'Thank you for suggesting books'
 });
+*/
   // Now redirect the user to the success page
   res.redirect("/syllabus-recommend.html");
 });
