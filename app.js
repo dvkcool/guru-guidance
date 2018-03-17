@@ -89,6 +89,7 @@ app.use(express.static(__dirname + '/public'));
 app.post('/registration', function(req, res){
   // body-parser delivers the body of the request as a JSON
   // document (req.body), so just pass that on to Cloudant.
+  console.log(req);
   cloudantDB.insert(req.body, function(err, body, header) {
     if (err) {
         console.log(`insert failed! ${err.message}`);
@@ -134,15 +135,8 @@ app.get('/syllabus', function(req, res){
   var webinar = require('cloudant-quickstart')(url, 'guru');
   webinar.query({
    "selector": {
-      "subdb": {
-         "$like": "books"
-      },
-      "subject":{
-        "$like": req.body.subject
-      },
-      "branch":{
-        "$like": req.body.branch
-      }
+      "sub": req.body.sub,
+      "email": req.body.email
    }
 })
   .then(function(data) {
@@ -161,6 +155,7 @@ app.get('/syllabus', function(req, res){
 app.post('/syllabus-recommend', function(req, res){
   // body-parser delivers the body of the request as a JSON
   // document (req.body), so just pass that on to Cloudant.
+  console.log(req);
   cloudantDB.insert(req.body, function(err, body, header) {
     if (err) {
         console.log(`insert failed! ${err.message}`);
