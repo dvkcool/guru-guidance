@@ -127,6 +127,8 @@ var t3 = [{"company":"scxsc"},{"company":"scasc"},{"company":"xsaxas"}];
 res.send(JSON.stringify(t3));
 
 });
+
+//Getting proper syllabus recommendations
 app.get('/syllabus', function(req, res){
   var webinar = require('cloudant-quickstart')(url, 'guru');
   webinar.query({
@@ -153,9 +155,24 @@ app.get('/syllabus', function(req, res){
   });;
 
 });
-function getdata(){
 
-}
+//Setting recommendation for books
+app.post('/syllabus-recommend', function(req, res){
+  // body-parser delivers the body of the request as a JSON
+  // document (req.body), so just pass that on to Cloudant.
+  cloudantDB.insert(req.body, function(err, body, header) {
+    if (err) {
+        console.log(`insert failed! ${err.message}`);
+        res.status(500).send(err.message);
+    } else {
+        console.log('Registration successfully processed!');
+    }
+  });
+  alert("Thank you for suggesting book");
+  // Now redirect the user to the success page
+  res.redirect("/syllabus-recommend.html");
+});
+
 // start server on the specified port
 app.listen(port);
 console.log(`Webinar registration server started on port ${port}....`);
