@@ -40,7 +40,7 @@ var url ='https://815b5ed3-a368-4187-822d-a44ac02baad4-bluemix:f9e969a258a436c91
 const port = process.env.PORT || 8080;
 
 // Just hardcoding the database name, should probably be an env var
-const dbname = 'webinar';
+const dbname = 'guru';
 
 // Credentials should be in order, so we're ready to go now. If not,
 // this is going to fail pretty quickly.
@@ -67,7 +67,7 @@ else
 var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('request');
-
+//var popup = require('popups');
 // Create a new express server and set up the body-parser
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -127,6 +127,8 @@ var t3 = [{"company":"scxsc"},{"company":"scasc"},{"company":"xsaxas"}];
 res.send(JSON.stringify(t3));
 
 });
+
+//Getting proper syllabus recommendations
 app.get('/syllabus', function(req, res){
   var webinar = require('cloudant-quickstart')(url, 'guru');
   webinar.query({
@@ -153,9 +155,27 @@ app.get('/syllabus', function(req, res){
   });;
 
 });
-function getdata(){
 
-}
+//Setting recommendation for books
+app.post('/syllabus-recommend', function(req, res){
+  // body-parser delivers the body of the request as a JSON
+  // document (req.body), so just pass that on to Cloudant.
+  cloudantDB.insert(req.body, function(err, body, header) {
+    if (err) {
+        console.log(`insert failed! ${err.message}`);
+        res.status(500).send(err.message);
+    } else {
+        console.log('Registration successfully processed!');
+    }
+  });
+  /*popup.alert({
+    content: 'Thank you for suggesting books'
+});
+*/
+  // Now redirect the user to the success page
+  res.redirect("/syllabus-recommend.html");
+});
+
 // start server on the specified port
 app.listen(port);
 console.log(`Webinar registration server started on port ${port}....`);
