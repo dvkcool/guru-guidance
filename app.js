@@ -95,10 +95,6 @@ app.post('/registration', function(req, res){
 });
 
 app.get('/viewreg', function(req, res){
-  cloudantDB.insert({ _id: 'mydoc', a: 1, b: 'two' }, function(err, data) {
-  console.log('Error:', err);
-  console.log('Data:', data);
-});
   cloudantDB.get('', function(err, body, header) {
     if (err) {
         console.log(`read failed ${err.message}`);
