@@ -6,7 +6,8 @@
 <body>
 
 <script type="text/javascript">
-	/*var selectOptions = {
+/*var request = require('request');
+	var selectOptions = {
     url: 'https://guru-guidance.eu-gb.mybluemix.net/sel-tr',
     method: 'GET'
   }
@@ -21,7 +22,8 @@
     }
     console.log(body);
   })
-  */
+
+
 	alert("hello main body");
   fetch('https://guru-guidance.eu-gb.mybluemix.net/sel-tr').then(function(response) {
   console.log(response);
@@ -34,7 +36,18 @@
 }).catch(function() {
   console.log("Booo");
 });
-
+*/
+function httpGetAsync(theUrl, callback)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() {
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText);
+    }
+    xmlHttp.open("GET", theUrl, true); // true for asynchronous
+    xmlHttp.send(null);
+}
+httpGetAsync('https://guru-guidance.eu-gb.mybluemix.net/sel-tr', true);
 </script>
 
 
