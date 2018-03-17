@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+/*var request = require('request');
+	var selectOptions = {
+    url: 'https://guru-guidance.eu-gb.mybluemix.net/sel-tr',
+    method: 'GET'
+  }
+  request(selectOptions, function(error, response, body) {
+    if (error) {
+        console.log('Error from select request: ');
+        console.log(error)
+        res.status(500).json({
+          'error': error,
+          'message': 'Select request failed'
+        });
+    }
+    console.log(body);
+  })
+
+
+	alert("hello main body");
+	*/
+  fetch('https://guru-guidance.eu-gb.mybluemix.net/sel-tr').then(function(response) {
+  console.log(response);
+	alert("hello tr1");
+  return response.json();
+
+}).then(function(data) {
+  console.log(data);
+	alert("data loads");
+}).catch(function(error) {
+  console.log("Booo");
+});
+
+/*function httpGetAsync(theUrl, callback)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() {
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText);
+    }
+    xmlHttp.open("GET", theUrl, true); // true for asynchronous
+    xmlHttp.send(null);
+}
+httpGetAsync('http://localhost:8080/t2', true);*/
+</script>
+
+
+</body>
+</html>
