@@ -67,6 +67,7 @@ else
 var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('request');
+var alertnode = require('alert-node');
 //var popup = require('popups');
 // Create a new express server and set up the body-parser
 var app = express();
@@ -165,7 +166,8 @@ app.post('/syllabus-recommend', function(req, res){
         console.log(`insert failed! ${err.message}`);
         res.status(500).send(err.message);
     } else {
-        console.log('Registration successfully processed!');
+        console.log('Syllabus recommendation successfully processed!');
+        alertnode('Thank you, your Syllabus recommendation is successfully processed!');
     }
   });
   /*popup.alert({
