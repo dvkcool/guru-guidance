@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+	/*var selectOptions = {
+    url: 'https://guru-guidance.eu-gb.mybluemix.net/sel-tr',
+    method: 'GET'
+  }
+  request(selectOptions, function(error, response, body) {
+    if (error) {
+        console.log('Error from select request: ');
+        console.log(error)
+        res.status(500).json({
+          'error': error,
+          'message': 'Select request failed'
+        });
+    }
+    console.log(body);
+  })
+  */
+  fetch('https://guru-guidance.eu-gb.mybluemix.net/sel-tr').then(function(response) {
+  console.log(response);
+  return response.json();
+
+}).then(function(data) {
+  console.log(data);
+}).catch(function() {
+  console.log("Booo");
+});
+
+</script>
+
+
+</body>
+</html>
