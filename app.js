@@ -94,6 +94,23 @@ app.post('/registration', function(req, res){
   res.redirect("/registered.html");
 });
 
+app.get('/viewreg', function(req, res){
+  cloudantDB.insert({ _id: 'mydoc', a: 1, b: 'two' }, function(err, data) {
+  console.log('Error:', err);
+  console.log('Data:', data);
+});
+  cloudantDB.get('', function(err, body, header) {
+    if (err) {
+        console.log(`read failed ${err.message}`);
+        res.status(500).send(err.message);
+    } else {
+
+        console.log(body);
+        res.send(body);
+    }
+  });
+});
+
 // start server on the specified port
 app.listen(port);
 console.log(`Webinar registration server started on port ${port}....`);
