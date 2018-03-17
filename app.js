@@ -108,7 +108,7 @@ app.get('/sel-tr', function(req, res){
   .then(function(data) {
     // success
     console.log(data);
-    res.send(data);
+    res.send(JSON.stringify(data));
   })
   .catch(function(err) {
     // failure
@@ -134,7 +134,7 @@ app.get('/syllabus', function(req, res){
   .then(function(data) {
     // success
     console.log(data);
-    res.send(data);
+    res.send(JSON.stringify(data));
   })
   .catch(function(err) {
     // failure
