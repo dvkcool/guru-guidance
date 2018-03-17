@@ -95,7 +95,17 @@ app.post('/registration', function(req, res){
 });
 
 app.get('/viewreg', function(req, res){
-  cloudantDB.get('', function(err, body, header) {
+  cloudantDB.get(`\{
+   "selector": {
+      "_id": {
+         "$gt": "0"
+      }
+   },
+   "fields": [
+      "_id",
+      "_rev"
+   ]
+}`, function(err, body, header) {
     if (err) {
         console.log(`read failed ${err.message}`);
         res.status(500).send(err.message);
