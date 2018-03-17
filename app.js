@@ -35,9 +35,8 @@ if (process.env.VCAP_SERVICES) {
     require('dotenv').config({silent: true});
 }
 
-// The default port number MUST be whatever the Cloud Foundry environment
-// has defined in the PORT variable. Otherwise your app will fail to deploy
-// to Bluemix with a mysterious health check error.
+var url ='https://815b5ed3-a368-4187-822d-a44ac02baad4-bluemix:f9e969a258a436c91ede37fd494b3085a9ccfe81f853048a70fdd149f138e807@815b5ed3-a368-4187-822d-a44ac02baad4-bluemix.cloudant.com';
+
 const port = process.env.PORT || 8080;
 
 // Just hardcoding the database name, should probably be an env var
@@ -94,30 +93,7 @@ app.post('/registration', function(req, res){
   res.redirect("/registered.html");
 });
 
-app.get('/viewreg', function(req, res){
-  cloudantDB.get(`{
-   "selector": {
-      "_id": {
-         "$gt": "0"
-      }
-   },
-   "fields": [
-      "_id",
-      "_rev"
-   ]
-}`, function(err, body, header) {
-    if (err) {
-        console.log(`read failed ${err.message}`);
-        res.status(500).send(err.message);
-    } else {
-
-        console.log(body);
-        res.send(body);
-    }
-  });
-});
 app.get('/sel-tr', function(req, res){
-  var url ='https://815b5ed3-a368-4187-822d-a44ac02baad4-bluemix:f9e969a258a436c91ede37fd494b3085a9ccfe81f853048a70fdd149f138e807@815b5ed3-a368-4187-822d-a44ac02baad4-bluemix.cloudant.com';
   var webinar = require('cloudant-quickstart')(url, 'webinar');
   webinar.query({
    "selector": {
