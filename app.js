@@ -117,8 +117,18 @@ app.get('/viewreg', function(req, res){
   });
 });
 app.get('/sel-tr', function(req, res){
-  var db = require('silverlining')('https://jeciethencheaspeciandera:b78617582f9930a1a79421751681234422decee2@HOST.cloudant.com/webinar');
-  db.query('SELECT company FROM webinar')
+  var url ='https://815b5ed3-a368-4187-822d-a44ac02baad4-bluemix:f9e969a258a436c91ede37fd494b3085a9ccfe81f853048a70fdd149f138e807@815b5ed3-a368-4187-822d-a44ac02baad4-bluemix.cloudant.com';
+  var webinar = require('cloudant-quickstart')(url, 'webinar');
+  webinar.query({
+   "selector": {
+      "_id": {
+         "$gt": "0"
+      }
+   },
+   "fields": [
+      "company"
+   ]
+})
   .then(function(data) {
     // success
     console.log(data);
