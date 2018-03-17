@@ -132,6 +132,7 @@ app.get('/sel-tr', function(req, res){
   .then(function(data) {
     // success
     console.log(data);
+    res.send(data);
   })
   .catch(function(err) {
     // failure
