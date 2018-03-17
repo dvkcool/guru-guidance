@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View, Text,  Alert, Button, TextInput, TouchableOpacity, Platform, Dimensions } from 'react-native';
+import {Card, CardItem, Thumbnail, H1 } from 'native-base';
 
 export default class Root extends React.Component {
   render() {
