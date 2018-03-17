@@ -25,6 +25,7 @@
 
 
 	alert("hello main body");
+	*/
   fetch('https://guru-guidance.eu-gb.mybluemix.net/sel-tr').then(function(response) {
   console.log(response);
 	alert("hello tr1");
@@ -33,11 +34,11 @@
 }).then(function(data) {
   console.log(data);
 	alert("data loads");
-}).catch(function() {
+}).catch(function(error) {
   console.log("Booo");
 });
-*/
-function httpGetAsync(theUrl, callback)
+
+/*function httpGetAsync(theUrl, callback)
 {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
@@ -47,7 +48,7 @@ function httpGetAsync(theUrl, callback)
     xmlHttp.open("GET", theUrl, true); // true for asynchronous
     xmlHttp.send(null);
 }
-httpGetAsync('https://guru-guidance.eu-gb.mybluemix.net/sel-tr', true);
+httpGetAsync('http://localhost:8080/t2', true);*/
 </script>
 
 

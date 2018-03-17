@@ -72,7 +72,12 @@ var request = require('request');
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors({origin: '*'}));
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+//app.use(cors({origin: '*'}));
 // Serve HTML files out of ./public
 app.use(express.static(__dirname + '/public'));
 
@@ -94,7 +99,6 @@ app.post('/registration', function(req, res){
   // Now redirect the user to the success page
   res.redirect("/registered.html");
 });
-
 app.get('/sel-tr', function(req, res){
   var webinar = require('cloudant-quickstart')(url, 'webinar');
   webinar.query({
@@ -109,14 +113,18 @@ app.get('/sel-tr', function(req, res){
 })
   .then(function(data) {
     // success
-    console.log(data);
+    //console.log(data);
 
-    res.send(JSON.stringify(data));
+    res.send(data);
   })
   .catch(function(err) {
     // failure
     console.error(err);
-  });;
+  });
+});
+app.get('/t2', function(req, res){
+var t3 = [{"company":"scxsc"},{"company":"scasc"},{"company":"xsaxas"}];
+res.send(JSON.stringify(t3));
 
 });
 app.get('/syllabus', function(req, res){
@@ -145,6 +153,9 @@ app.get('/syllabus', function(req, res){
   });;
 
 });
+function getdata(){
+
+}
 // start server on the specified port
 app.listen(port);
 console.log(`Webinar registration server started on port ${port}....`);
