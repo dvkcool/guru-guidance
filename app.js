@@ -95,7 +95,7 @@ app.post('/registration', function(req, res){
 });
 
 app.get('/viewreg', function(req, res){
-  cloudantDB.get(`\{
+  cloudantDB.get(`{
    "selector": {
       "_id": {
          "$gt": "0"
