@@ -116,6 +116,32 @@ app.get('/sel-tr', function(req, res){
   });;
 
 });
+app.get('/syllabus', function(req, res){
+  var webinar = require('cloudant-quickstart')(url, 'guru');
+  webinar.query({
+   "selector": {
+      "subdb": {
+         "$like": "books"
+      },
+      "subject":{
+        "$like": req.body.subject
+      },
+      "branch":{
+        "$like": req.body.branch
+      }
+   }
+})
+  .then(function(data) {
+    // success
+    console.log(data);
+    res.send(data);
+  })
+  .catch(function(err) {
+    // failure
+    console.error(err);
+  });;
+
+});
 // start server on the specified port
 app.listen(port);
 console.log(`Webinar registration server started on port ${port}....`);
