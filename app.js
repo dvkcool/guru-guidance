@@ -55,6 +55,8 @@ cloudant = Cloudant(process.env.CLOUDANT_URL);
 cloudant.db.create(dbname);
 cloudantDB = cloudant.use(dbname);
 
+var cors = require('cors');
+
 if (cloudantDB === null)
     console.warn('Could not find or create the database!');
 else
@@ -70,7 +72,7 @@ var request = require('request');
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+app.use(cors({origin: '*'}));
 // Serve HTML files out of ./public
 app.use(express.static(__dirname + '/public'));
 
@@ -108,6 +110,7 @@ app.get('/sel-tr', function(req, res){
   .then(function(data) {
     // success
     console.log(data);
+
     res.send(JSON.stringify(data));
   })
   .catch(function(err) {
