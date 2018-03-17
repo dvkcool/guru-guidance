@@ -117,10 +117,16 @@ app.get('/viewreg', function(req, res){
   });
 });
 app.get('/sel-tr', function(req, res){
-  var db = require('silverlining')('https://jeciethencheaspeciandera:b78617582f9930a1a79421751681234422decee2@HOST.cloudant.com/animalsdb');
-  db.query('SELECT company FROM webinar').then(function(data) {
+  var db = require('silverlining')('https://jeciethencheaspeciandera:b78617582f9930a1a79421751681234422decee2@HOST.cloudant.com/webinar');
+  db.query('SELECT company FROM webinar')
+  .then(function(data) {
+    // success
     console.log(data);
-  });
+  })
+  .catch(function(err) {
+    // failure
+    console.error(err);
+  });;
 
 });
 // start server on the specified port
