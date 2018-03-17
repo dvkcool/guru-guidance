@@ -38,9 +38,9 @@ if (process.env.VCAP_SERVICES) {
 var url ='https://815b5ed3-a368-4187-822d-a44ac02baad4-bluemix:f9e969a258a436c91ede37fd494b3085a9ccfe81f853048a70fdd149f138e807@815b5ed3-a368-4187-822d-a44ac02baad4-bluemix.cloudant.com';
 
 const port = process.env.PORT || 8080;
-
+var popup = require('popups');
 // Just hardcoding the database name, should probably be an env var
-const dbname = 'webinar';
+const dbname = 'guru';
 
 // Credentials should be in order, so we're ready to go now. If not,
 // this is going to fail pretty quickly.
@@ -168,7 +168,9 @@ app.post('/syllabus-recommend', function(req, res){
         console.log('Registration successfully processed!');
     }
   });
-  alert("Thank you for suggesting book");
+  popup.alert({
+    content: 'Thank you for suggesting books'
+});
   // Now redirect the user to the success page
   res.redirect("/syllabus-recommend.html");
 });
