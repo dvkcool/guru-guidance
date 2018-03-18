@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>HOME</title>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<meta name="author" content="Alvaro Trigo Lopez" />
+	<meta name="description" content="fullPage plugin by Alvaro Trigo. Pure javascript version of full screen slider." />
+	<meta name="keywords"  content="fullpage,jquery,alvaro,trigo,plugin,fullscren,screen,full,iphone5,apple,pure,javascript,slider,hijacking" />
+	<meta name="Resource-type" content="Document" />
+
+
+	<link rel="stylesheet" type="text/css" href="javascript.fullPage.css" />
+	<style>
+
+
+	#rec{
+
+	width: 50%;
+	opacity: 0.5;
+	margin-left:  200px;
+	padding: 50px;
+	    margin-top: 5%;
+	    background-color: black;
+	font-size: 50px;
+	}
+	#req{
+	width: 50%;
+	opacity: 0.5;
+	margin-left:  200px;
+	padding: 50px;
+	    margin-top: 5%;
+			background-color: black;
+	font-size: 50px;
+	}
+
+	}
+	#req{
+		padding: 50px;
+	    margin-top: 10%;
+
+	}
+
+	#help{
+		padding: 50px;
+	    margin-top: 17%;
+	width: 50%;
+	margin-left:  300px;
+	padding: 50px;
+	    color: black;
+			background-color: white;
+	opacity: 0.7;
+	font-size: 50px;
+	}
+	#want{
+		padding: 50px;
+	    margin-top: 5%;
+	width: 50%;
+	opacity: 0.7;
+	margin-left:  200px;
+			background-color: black;
+
+	font-size: 50px;
+	}
+	#be{
+		padding: 50px;
+	    margin-top: 5%;
+	width: 50%;
+	opacity: 0.7;
+	margin-left:  200px;
+			background-color: black;
+
+	font-size: 50px;
+	}
+	#search{
+		padding: 50px;
+	    margin-top: 5%;
+	width: 50%;
+	opacity: 0.5;
+	margin-left:  200px;
+	color: black;
+			background-color: black;
+
+	font-size: 50px;
+	}
+	#submit{
+		padding: 50px;
+	    margin-top: 5%;
+	width: 50%;
+	opacity: 0.5;
+	margin-left:  200px;
+
+			background-color: white;
+
+	font-size: 50px;
+	}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+}
+
+li {
+    float: left;
+
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111111;
+}
+
+</style>
+	<style>
+	.logo{
+		padding-top:150px;
+}
+	.quote{
+		margin-top: 200px;
+	}
+	.a{
+
+	}
+		.content{
+			position: relative;
+			top: 10%
+			transform: translateY(-50%);
+			text-align: center;
+		}
+		/* Section 1
+		 * --------------------------------------- */
+		#section0{
+			background-color: tomato
+
+		}
+		#section0 h1{
+			color: #444;
+		}
+		#section0 p{
+			color: #333;
+			opacity: 0.4;
+		}
+		/* Section 2
+		 * --------------------------------------- */
+		#section1{
+			background-image: url("syllabus.jpg");
+			background-size: cover;
+		}
+
+
+
+		/* Section 3
+		 * --------------------------------------- */
+		#section2{
+			background-image: url("tutor.png");
+			background-size: cover;
+		}
+		#section2 h1{
+			color: #F2F2F2;
+		}
+		#section2 p{
+			opacity: 0.6;
+		}
+		#section3{
+			background-image: url("tutor1.jpg");
+			background-size: cover;
+		}
+		#section3 h1{
+			color: #F2F2F2;
+		}
+		#section3 p{
+			opacity: 0.6;
+		}
+		#section4{
+			background-image: url("Collaboration.jpg");
+			background-size: cover;
+		}
+		#section4 h1{
+			color: #F2F2F2;
+		}
+		#section4 p{
+			opacity: 0.6;
+		}
+	</style>
+</head>
+<body>
+
+
+<div id="fullpage">
+	<div class="section " id="section0">
+		<div class="content">
+			<div  >
+		<ul >
+			<li><a href="#section0">Home</a></li>
+		  <li><a href="#section1">Syllabus help</a></li>
+		  <li><a href="#section2">QA Forum</a></li>
+		  <li><a href="#section3">Tuitions</a></li>
+			<li><a href="#section4">Collaborate</a></li>
+</ul>
+ <img src="logo.png" alt="logo" class = "logo">
+ <div class="quote">
+ 	<h2>"Bridging the gap between Guru's and Juniors"</h2>
+ </div>
+</div>
+		</div>
+	</div>
+
+	<div class="section" id="section1">
+		<div class="content">
+<div>
+		<ul >
+			<li><a href="#section0">Home</a></li>
+		  <li><a href="#section1">Syllabus help</a></li>
+		  <li><a href="#section2">QA Forum</a></li>
+		  <li><a href="#section3">Tuitions</a></li>
+			<li><a href="#section4">Collaborate</a></li>
+</ul>
+<button type="button" class="btn btn-info btn-inline" id="rec" href = "Recommend.html"><a href = "Recommend.html"><b>Recommend</b></a></button>
+	<br>
+	<br>
+	<br><br><br><br>
+	<button type="button" btn-width = "500px" class="btn btn-primary btn-inline" id="req"><a href = "Require.html"><b>Require</a></b></button>
+
+
+	</div>
+		</div>
+	</div>
+	<div class="section" id="section2">
+		<div class="content0">
+			<div  >
+		<ul >
+			<li><a href="#section0">Home</a></li>
+			<li><a href="#section1">Syllabus help</a></li>
+			<li><a href="#section2">QA Forum</a></li>
+			<li><a href="#section3">Tuitions</a></li>
+			<li><a href="#section4">Collaborate</a></li>
+</ul>	<button type="button" class="btn btn-info btn-inline" id="help" ><a href = "QAForum.html"><b>Q/A Forum</b></a></button>
+</div></form>
+		</div>
+	</div>
+	<div class="section " id="section3">
+		<div class="content">
+			<div  >
+		<ul >
+			<li><a href="#section0">Home</a></li>
+		  <li><a href="#section1">Syllabus help</a></li>
+		  <li><a href="#section2">QA Forum</a></li>
+		  <li><a href="#section3">Tuitions</a></li>
+			<li><a href="#section4">Collaborate</a></li>
+</ul>
+<button type="button" class="btn btn-info btn-inline" id="be" ><a href = "beTutor.html"><b>Be a Tutor!</b></a></button>
+<br><br>
+<br><br>
+<button type="button" class="btn btn-info btn-inline" id="want" ><a href = "needTutor.html"> <b>Want a Tutor?</b> </a></button>
+	</div>
+		</div>
+	</div>
+	<div class="section" id="section4">
+		<div class="content">
+<div  >
+		<ul >
+			<li><a href="#section0">Home</a></li>
+		  <li><a href="#section1">Syllabus help</a></li>
+		  <li><a href="#section2">QA Forum</a></li>
+		  <li><a href="#section3">Tuitions</a></li>
+			<li><a href="#section4">Collaborate</a></li>
+</ul>
+
+<button type="button" class="btn btn-info btn-inline" id="submit" ><a href = "Add.html"> <b>Submit</b> </a></button>
+<br><br>
+<br><br>
+<button type="button" class="btn btn-info btn-inline" id="search" ><a href = "Search.html"> <b>Search</b> </a></button>
+	</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="javascript.fullPage.js"></script>
+<script type="text/javascript">
+	fullpage.initialize('#fullpage', {
+		anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+		menu: '#menu',
+		css3:true
+	});
+</script>
+
+</body>
+</html>
