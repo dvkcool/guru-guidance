@@ -1,0 +1,23 @@
+body {
+    background-image: url("tutor1.jpg");
+   background-repeat: no-repeat;
+     background-size: cover;
+}
+a{
+    color: black;
+    position: fixed;
+    width: 300px;
+    text-decoration: none;
+    font-family: "Arial" ;
+    font-size: 60;
+    fo
+}
+#wantTutor{
+  bottom: 75%;
+  right: 25%;
+}
+#beTutor{
+    bottom: 25%;
+    right: 25%;
+}
+}
