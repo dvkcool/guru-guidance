@@ -65,26 +65,29 @@
 		</div>
 		<div class="row mt">
 			<div class="col-lg-4 ">
-				<form role="form">
+				<form role="form" method="post" action="/project"
+          role="form" id="project-form">
 				  <div class="form-group">
-				    <input type="name" class="form-control" id="NameInputEmail1" placeholder="Company Name">
+				    <input type="name" class="form-control" id="Name" placeholder="Company Name" name="companyname">
 				    <br>
 				  </div>
 				  <div class="form-group">
-				    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Branch">
+				    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Branch" name="branch">
 				    <br>
 				  </div>
 				  <div class="form-group">
-				    <input type="text" class="form-control" id="subjectEmail1" placeholder="Subject">
+				    <input type="text" class="form-control" id="subjectEmail1" placeholder="Code Structure" name="codestruct">
 				    <br>
 				  </div>
           <div class="form-group">
-				    <input type="text" class="form-control" id="subjectEmail1" placeholder="Stipend">
+				    <input type="text" class="form-control" id="subjectEmail1" placeholder="Stipend" name ="stipend">
 				    <br>
 				  </div>
-				  <textarea class="form-control" rows="6" placeholder="About Internship"></textarea>
+				  <textarea class="form-control" rows="6" placeholder="About Internship" name ="abouti"></textarea>
 				    <br>
-				  <button type="submit" class="btn btn-success">SEARCH</button>
+            <button class="btn btn-lg"
+              style="border: none; background-color: #00aed1; font-weight: bold;"
+              type="submit">Submit</button>
 				</form>
 			</div>
       <div class="col-lg-8 ol-lg-offset-3 ">

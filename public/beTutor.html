@@ -29,7 +29,8 @@
 				<img src="images/img-01.png" alt="IMG">
 			</div>
 
-			<form class="contact1-form validate-form">
+			<form class="contact1-form validate-form" method="post" action="/tution"
+				role="form" id="tution-form">
 				<span class="contact1-form-title">
 					Get In Touch
 				</span>
@@ -50,7 +51,7 @@
 				</div>
 
                 <div class="wrap-input1 validate-input" data-validate = "Subject is required">
-					<input class="input1" type="text" name="subject" placeholder="Contact Number">
+					<input class="input1" type="text" name="contact" placeholder="Contact Number">
 					<span class="shadow-input1"></span>
 				</div>
 
@@ -64,12 +65,11 @@
 							<i class="fa fa-long-arrow-left" aria-hidden="true"></i>
 						</span>
 					</button>
-					<button class="contact1-form-btn">
-						<span>
-							Submit
-							<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						</span>
-					</button>
+
+						<button class="btn btn-lg"
+							style="border: none; background-color: #00aed1; font-weight: bold;"
+							type="submit">Submit</button>
+
 				</div>
 			</form>
 		</div>

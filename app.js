@@ -40,7 +40,7 @@ var url ='https://815b5ed3-a368-4187-822d-a44ac02baad4-bluemix:f9e969a258a436c91
 const port = process.env.PORT || 8080;
 
 // Just hardcoding the database name, should probably be an env var
-const dbname = 'guru';
+
 
 // Credentials should be in order, so we're ready to go now. If not,
 // this is going to fail pretty quickly.
@@ -51,16 +51,11 @@ var cloudant, cloudantDB;
 // Now open the database. If it doesn't exist, it is created. The URL
 // for Cloudant is in the form https://user name:password@address, so
 // we don't have to pass the username and password separately.
-cloudant = Cloudant(process.env.CLOUDANT_URL);
-cloudant.db.create(dbname);
-cloudantDB = cloudant.use(dbname);
+
 
 var cors = require('cors');
 
-if (cloudantDB === null)
-    console.warn('Could not find or create the database!');
-else
-    console.log('The database seems to be fine.');
+
 
 // Use the common combination of Express, body-parser, and
 // request to handle web traffic and requests.
@@ -150,9 +145,51 @@ app.get('/syllabus', function(req, res){
   });;
 
 });
+app.get('/question', function(req, res){
+  var webinar = require('cloudant-quickstart')(url, 'question');
+  webinar.query({
+   "selector": {
+   }
+})
+  .then(function(data) {
+    // success
+    console.log(data);
+    res.send(JSON.stringify(data));
+  })
+  .catch(function(err) {
+    // failure
+    console.error(err);
+  });;
+
+});
+app.get('/tution', function(req, res){
+  var webinar = require('cloudant-quickstart')(url, 'tution');
+  webinar.query({
+   "selector": {
+   }
+})
+  .then(function(data) {
+    // success
+    console.log(data);
+    res.send(JSON.stringify(data));
+  })
+  .catch(function(err) {
+    // failure
+    console.error(err);
+  });;
+
+});
 
 //Setting recommendation for books
 app.post('/syllabus-recommend', function(req, res){
+  const dbname = 'guru';
+  cloudant = Cloudant(process.env.CLOUDANT_URL);
+  cloudant.db.create(dbname);
+  cloudantDB = cloudant.use(dbname);
+  if (cloudantDB === null)
+      console.warn('Could not find or create the database!');
+  else
+      console.log('The database seems to be fine.');
   // body-parser delivers the body of the request as a JSON
   // document (req.body), so just pass that on to Cloudant.
   console.log(req);
@@ -170,9 +207,92 @@ app.post('/syllabus-recommend', function(req, res){
 });
 */
   // Now redirect the user to the success page
-  res.redirect("/syllabus-recommend.html");
+  res.redirect("/Recommend.html");
 });
-
+app.post('/project', function(req, res){
+  const dbname = 'project';
+  cloudant = Cloudant(process.env.CLOUDANT_URL);
+  cloudant.db.create(dbname);
+  cloudantDB = cloudant.use(dbname);
+  if (cloudantDB === null)
+      console.warn('Could not find or create the database!');
+  else
+      console.log('The database seems to be fine.');
+  // body-parser delivers the body of the request as a JSON
+  // document (req.body), so just pass that on to Cloudant.
+  console.log(req);
+  cloudantDB.insert(req.body, function(err, body, header) {
+    if (err) {
+        console.log(`insert failed! ${err.message}`);
+        res.status(500).send(err.message);
+    } else {
+        console.log('Syllabus recommendation successfully processed!');
+        alertnode('Thank you, your project has been added');
+    }
+  });
+  /*popup.alert({
+    content: 'Thank you for suggesting books'
+});
+*/
+  // Now redirect the user to the success page
+  res.redirect("/Search.html");
+});
+app.post('/question', function(req, res){
+  const dbname = 'question';
+  cloudant = Cloudant(process.env.CLOUDANT_URL);
+  cloudant.db.create(dbname);
+  cloudantDB = cloudant.use(dbname);
+  if (cloudantDB === null)
+      console.warn('Could not find or create the database!');
+  else
+      console.log('The database seems to be fine.');
+  // body-parser delivers the body of the request as a JSON
+  // document (req.body), so just pass that on to Cloudant.
+  console.log(req);
+  cloudantDB.insert(req.body, function(err, body, header) {
+    if (err) {
+        console.log(`insert failed! ${err.message}`);
+        res.status(500).send(err.message);
+    } else {
+        console.log('Syllabus recommendation successfully processed!');
+        alertnode('Thank you, your Syllabus recommendation is successfully processed!');
+    }
+  });
+  /*popup.alert({
+    content: 'Thank you for suggesting books'
+});
+*/
+  // Now redirect the user to the success page
+  res.redirect("/ask.html");
+});
+app.post('/tution', function(req, res){
+  const dbname = 'tution';
+  cloudant = Cloudant(process.env.CLOUDANT_URL);
+  cloudant.db.create(dbname);
+  cloudantDB = cloudant.use(dbname);
+  if (cloudantDB === null)
+      console.warn('Could not find or create the database!');
+  else
+      console.log('The database seems to be fine.');
+  // body-parser delivers the body of the request as a JSON
+  // document (req.body), so just pass that on to Cloudant.
+  console.log(req);
+  cloudantDB.insert(req.body, function(err, body, header) {
+    if (err) {
+        console.log(`insert failed! ${err.message}`);
+        res.status(500).send(err.message);
+    } else {
+        console.log('Syllabus recommendation successfully processed!');
+        alertnode('Thank you, you will be shortly notified with the details!');
+    }
+  });
+  /*popup.alert({
+    content: 'Thank you for suggesting books'
+});
+*/
+  // Now redirect the user to the success page
+  res.redirect("/beTutor.html");
+});
 // start server on the specified port
 app.listen(port);
 console.log(`Webinar registration server started on port ${port}....`);

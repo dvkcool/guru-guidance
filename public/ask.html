@@ -11,17 +11,23 @@
 <body>
 <div class="container-fluid">
 	<div class="row">
-<button type="button" class="btn btn-info">Back</button>
+
+<button type="button" class="btn btn-info"><a href='http://localhost:8080/home.html'>Back</a></button>
+
 </div>
 <div class="text-center">
 <h3> Clear Your Doubts!! </h3>
-<form>
+<form  method="post" action="/question"
+	role="form" id="question-send" >
 <div class="form-group">
-    <
-    <textarea rows="4" cols="100"></textarea>
+
+    <textarea rows="4" cols="100" name="question"></textarea>
   </div>
-  </form>
-  <button type="button" class="btn btn-success">Submit</button>
+
+	<button class="btn btn-lg"
+		style="border: none; background-color: #00aed1; font-weight: bold;"
+		type="submit">Submit</button>
+		  </form>
   </div>
 </div>
 </body>
