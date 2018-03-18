@@ -135,8 +135,8 @@ app.get('/syllabus', function(req, res){
   var webinar = require('cloudant-quickstart')(url, 'guru');
   webinar.query({
    "selector": {
-      "sub": req.body.sub,
-      "email": req.body.email
+      "subject": req.body.subject,
+      "branch": req.body.branch
    }
 })
   .then(function(data) {

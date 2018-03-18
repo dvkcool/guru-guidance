@@ -13,7 +13,26 @@ export default class Root extends React.Component {
   state = {
     screen: 0,
 }
-
+ Syll = async()=>{
+  this.setState({
+    screen: 1
+  })
+}
+QAF = async()=>{
+ this.setState({
+   screen: 2
+ })
+}
+Tutr = async()=>{
+ this.setState({
+   screen: 3
+ })
+}
+proj = async()=>{
+ this.setState({
+   screen: 4
+ })
+}
   render() {
     if(this.state.screen == 0){
       return (
@@ -24,22 +43,21 @@ export default class Root extends React.Component {
             justifyContent: 'space-between',
             flex: 1,}}>
           <View style={{flex: 1, justifyContent: 'center', alignItems: 'center',}}>
-          <H1> Guru-Guidance </H1>
-          <Image source={require('./images/hand.png')}/>
+          <Image source={require('./images/logo.jpg')}/>
           <View>
           <H3>"Building a bridge for communication between the Guru(s) and juniors"</H3>
           </View>
           </View>
         <View style={{flex: 1,justifyContent: 'center',alignItems: 'center',}}>
         <View style={{flex: 1, flexDirection: 'row',backgroundColor: 'powderblue'}}>
-          <TouchableOpacity style={{paddingTop: 20}}>
+          <TouchableOpacity style={{paddingTop: 20}} onPress={this.Syll}>
           <View style={{width: (Dimensions.get('window').width-50)/2, height: 125,justifyContent: 'center',
           alignItems: 'center'}}>
           <Image source={require('./images/syllabus.png')}/>
           <Text>Syllabus </Text>
           </View>
           </TouchableOpacity>
-          <TouchableOpacity style={{paddingTop: 20}}>
+          <TouchableOpacity style={{paddingTop: 20}}  onPress={this.QAF}>
           <View style={{width: (Dimensions.get('window').width-50)/2, height: 125,justifyContent: 'center',
           alignItems: 'center'}}>
           <Image source={require('./images/QA.png')}/>
@@ -48,14 +66,14 @@ export default class Root extends React.Component {
           </TouchableOpacity>
         </View>
         <View style={{flex: 1, flexDirection: 'row', backgroundColor: 'powderblue'}}>
-        <TouchableOpacity>
+        <TouchableOpacity  onPress={this.Tutr}>
         <View style={{width: (Dimensions.get('window').width-50)/2, height: 125,justifyContent: 'center',
         alignItems: 'center'}}>
         <Image source={require('./images/tutor.png')}/>
         <Text>Tutor </Text>
         </View>
-        </TouchableOpacity>
-        <TouchableOpacity>
+        </TouchableOpacity >
+        <TouchableOpacity onPress={this.proj}>
         <View style={{width: (Dimensions.get('window').width-50)/2, height: 125,justifyContent: 'center',
         alignItems: 'center'}}>
         <Image source={require('./images/projects.png')}/>
@@ -79,10 +97,10 @@ export default class Root extends React.Component {
       return(<Syllabus/>);
     }
     else if(this.state.screen == 2){
-      return(<Tutor/>);
+      return(<QA/>);
     }
     else if(this.state.screen ==3){
-      return(<QA/>);
+      return(<Tutor/>);
     }
     else {
       return(<Projects/>);
