@@ -1,15 +1,29 @@
-# Webinar registration sample application
+# Guru Guidance App- HackDUnhacD
+## Basic Theme
+This applications theme is to help the juinors of any one seeking help in academics.
+It has basic four basic objectives:
+1. To help juniors with the syllabus.
+2. To help with Question and Answer related to academics.
+3. To help juniors to get projects with seniors.
+4. To help get and set tutions.
 
-This application is a slightly more advanced version of the basic node.js
-starter application provided by the IBM Cloud platform. It uses the express
-package to serve a web form from the /public directory. When the user clicks
-Submit on that page, app.js takes the data from the form and inserts it into
-a Cloudant database hosted in the IBM Cloud.
+## Live link
+This website is live at http://guru-guidance.eu-gb.mybluemix.net/home.html#section4.
+Hosted in love with IBM Cloud.
 
-## Running this app
-This app is designed to be run four different ways:
+## Dev Dependencies
+1. Node
+2. NPM - Node Package Manager.
+3. IBM command line tools.
 
-1. As a standalone app running on your machine
-1. As a Cloud Foundry app running in the IBM Cloud
-1. In a Docker container running on your machine
-1. In a Kubernetes cluster running in the IBM Cloud
+## Open Source libraries used.
+1. cloudant-quickstart: A library to execute cloudant select queries.
+2. silverlining: A previous version of cloudant-quickstart which enables JSON body selection.
+
+## Found a bug?
+Feel free to open an issue in this repository, or mail me at divyanshukumarg@gmail.com
+
+## Know the developers
+1. Chetana Sahu - Frontend - chetanasahu1997@gmail.com
+2. Vaibhav Gupta - Frontend - vaibnakgupta100@gmail.com
+3. Divyanshu Kumar - Backend - divyanshukumarg@gmail.com
