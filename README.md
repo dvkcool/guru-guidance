@@ -8,7 +8,7 @@ It has basic four basic objectives:
 4. To help get and set tutions.
 
 ## Live link
-This website is live at http://guru-guidance.eu-gb.mybluemix.net/home.html#section4.
+This website is live at http://guru-guidance.eu-gb.mybluemix.net/home.html
 Hosted in love with IBM Cloud.
 
 ## Dev Dependencies
